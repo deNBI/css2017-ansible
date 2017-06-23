@@ -1,0 +1,31 @@
+---
+- name: Common tasks
+  hosts: all
+  become: yes
+  tasks:
+
+    - name: Install packages
+      with_items: "{{ common_packages | mandatory }}"
+      when: ansible_pkg_mgr == "apt"
+      apt:
+        name: "{{ item }}"
+        state: latest
+
+    - name: Install EPEL
+      when: ansible_pkg_mgr == "yum"
+      yum:
+        name: epel-release
+        state: latest
+
+    - name: Install packages
+      with_items: "{{ common_packages | mandatory }}"
+      when: ansible_pkg_mgr == "yum"
+      yum:
+        name: "{{ item }}"
+        state: latest
+
+    - name: Install MOTD
+      copy:
+        src: motd
+        dest: /etc/motd
+

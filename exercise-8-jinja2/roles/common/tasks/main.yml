@@ -1,0 +1,27 @@
+---
+- name: Install packages
+  with_items: "{{ common_packages | mandatory }}"
+  when: ansible_pkg_mgr == "apt"
+  apt:
+    name: "{{ item }}"
+    state: latest
+
+- name: Install EPEL
+  when: ansible_pkg_mgr == "yum"
+  yum:
+    name: epel-release
+    state: latest
+
+- name: Install packages
+  with_items: "{{ common_packages | mandatory }}"
+  when: ansible_pkg_mgr == "yum"
+  yum:
+    name: "{{ item }}"
+    state: latest
+
+- name: "Apply MOTD template"
+  become: yes
+  template:
+    src: etc/motd.j2
+    dest: /etc/motd
+    mode: 0644

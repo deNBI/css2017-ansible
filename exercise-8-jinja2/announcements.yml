@@ -1,0 +1,6 @@
+common_cloud_admin_support_email: "support@denbi-cloud.de"
+common_announcements:
+ - date: "yesterday"
+   content: "Preparations are going on to get the cloud going."
+ - date: "today"
+   content: "The de.NBI Cloud is online!"

@@ -1,0 +1,29 @@
+---
+- name: Common tasks
+  hosts: all
+  become: yes
+  tasks:
+
+    - name: Install my favourite monitoring tool
+      when: ansible_pkg_mgr == "apt"
+      apt:
+        name: "{{ monitoring_tool | mandatory }}"
+        state: latest
+
+    - name: Install EPEL
+      when: ansible_pkg_mgr == "yum"
+      yum:
+        name: epel-release
+        state: latest
+
+    - name: Install my favourite monitoring tool
+      when: ansible_pkg_mgr == "yum"
+      yum:
+        name: "{{ monitoring_tool | mandatory }}"
+        state: latest
+
+    - name: Install MOTD
+      copy:
+        src: motd
+        dest: /etc/motd
+

@@ -1,0 +1,22 @@
+---
+- name: Common tasks executed on Debian hosts
+  hosts: vm1
+  become: yes
+  tasks:
+    - name: Install my favourite monitoring tool
+      apt:
+        name: htop
+        state: latest
+
+- name: Common tasks executed on CentOS hosts
+  hosts: vm2
+  become: yes
+  tasks:
+    - name: Install EPEL
+      yum:
+        name: epel-release
+        state: latest
+    - name: Install my favourite monitoring tool
+      yum:
+        name: htop
+        state: latest

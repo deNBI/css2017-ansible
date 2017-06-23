@@ -1,0 +1,32 @@
+
+      ██            ████     ██ ██████   ██
+     ░██           ░██░██   ░██░█░░░░██ ░██
+     ░██  █████    ░██░░██  ░██░█   ░██ ░██
+  ██████ ██░░░██   ░██ ░░██ ░██░██████  ░██
+ ██░░░██░███████   ░██  ░░██░██░█░░░░ ██░██
+░██  ░██░██░░░░  ██░██   ░░████░█    ░██░██
+░░██████░░██████░██░██    ░░███░███████ ░██
+ ░░░░░░  ░░░░░░ ░░ ░░      ░░░ ░░░░░░░  ░░ 
+   ██████   ██                       ██
+  ██░░░░██ ░██                      ░██
+ ██    ░░  ░██  ██████  ██   ██     ░██
+░██        ░██ ██░░░░██░██  ░██  ██████
+░██        ░██░██   ░██░██  ░██ ██░░░██
+░░██    ██ ░██░██   ░██░██  ░██░██  ░██
+ ░░██████  ███░░██████ ░░██████░░██████
+  ░░░░░░  ░░░  ░░░░░░   ░░░░░░  ░░░░░░ 
+
+
+You are logged in to {{ ansible_hostname }} ({{ ansible_default_ipv4.address }}).
+
+If you need support contact <{{ common_cloud_admin_support_email | mandatory }}>.
+
+{# Only display the announcement block, if the variable contains a list of announcements. #}
+{% if common_announcements and common_announcements|length > 0  %}
+Recent Announcements:
+
+   {% for announcement in common_announcements %}
+  {{ announcement.date }}: {{ announcement.content }}
+
+   {% endfor %}
+{% endif %}

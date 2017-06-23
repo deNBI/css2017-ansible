@@ -1,0 +1,11 @@
+---
+common_packages:
+  - htop
+  - curl
+  - wget
+  - links
+
+common_cloud_admin_support_email: "support@denbi-cloud.de"
+common_announcements:
+ - date: "today"
+   content: "Preparations are going on to get the cloud going."

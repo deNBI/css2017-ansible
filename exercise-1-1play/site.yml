@@ -1,0 +1,9 @@
+---
+- name: Common tasks executed on Debian hosts
+  hosts: vm1
+  become: yes
+  tasks:
+    - name: Install my favourite monitoring tool
+      apt:
+        name: htop
+        state: latest

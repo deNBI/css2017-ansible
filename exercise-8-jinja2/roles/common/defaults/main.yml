@@ -1,0 +1,10 @@
+---
+## List of packages to install with "apt" or "yum"
+common_packages: []
+
+## Displayed in MOTD
+common_cloud_admin_support_email:
+
+# Displayed in MOTD. Each entry a dictionary with "date" and "content" keys.
+common_announcements: []
+
