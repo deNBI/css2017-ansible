@@ -11,6 +11,6 @@ The course requires at least a Debian and a CentOS target systems to configure. 
 1. "CentOS 7 (1705)": Target VM "vm2" to configure.
 
 After logging in to the management VM, you should clone this repo:
-
-   git clone https://github.com/deNBI/css2017-ansible.git
-   
+```bash
+git clone https://github.com/deNBI/css2017-ansible.git
+```   
